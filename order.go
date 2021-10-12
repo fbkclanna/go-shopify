@@ -92,10 +92,17 @@ type Order struct {
 	BillingAddress        *Address         `json:"billing_address,omitempty"`
 	ShippingAddress       *Address         `json:"shipping_address,omitempty"`
 	Currency              string           `json:"currency,omitempty"`
+	PresentmentCurrency   string           `json:"presentment_currency,omitempty"`
+	CurrentTotalPrice     *decimal.Decimal `json:"current_total_price,omitempty"`
+	CurrentSubtotalPrice  *decimal.Decimal `json:"current_subtotal_price,omitempty"`
+	CurrentTotalDiscounts *decimal.Decimal `json:"current_total_discounts,omitempty"`
+	CurrentTotalTax       *decimal.Decimal `json:"current_total_tax,omitempty"`
 	TotalPrice            *decimal.Decimal `json:"total_price,omitempty"`
 	SubtotalPrice         *decimal.Decimal `json:"subtotal_price,omitempty"`
 	TotalDiscounts        *decimal.Decimal `json:"total_discounts,omitempty"`
 	TotalLineItemsPrice   *decimal.Decimal `json:"total_line_items_price,omitempty"`
+	TotalTipReceived      *decimal.Decimal `json:"total_tip_received,omitempty"`
+	TotalOutstanding      *decimal.Decimal `json:"total_outstanding,omitempty"`
 	TaxesIncluded         bool             `json:"taxes_included,omitempty"`
 	TotalTax              *decimal.Decimal `json:"total_tax,omitempty"`
 	TaxLines              []TaxLine        `json:"tax_lines,omitempty"`
@@ -143,6 +150,7 @@ type Order struct {
 	CheckoutID            int64            `json:"checkout_id,omitempty"`
 	ContactEmail          string           `json:"contact_email,omitempty"`
 	Metafields            []Metafield      `json:"metafields,omitempty"`
+	EstimatedTaxes        bool             `json:"estimated_taxes,omitempty"`
 }
 
 type Address struct {
